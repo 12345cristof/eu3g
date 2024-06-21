@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Bautizo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background-color: #f7f7f7;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .background-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .background-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 1.0;
+            animation: zoomIn 1s ease-in-out;
+        }
+        @keyframes zoomIn {
+            from { transform: scale(1.1); }
+            to { transform: scale(1); }
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            background-image: url('img/fon2.jpeg'); /* Agrega aquí la imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            color: white; /* Ajusta el color del texto para asegurarte de que sea legible */
+            animation: slideIn 1s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .header {
+            font-family: 'Great Vibes', cursive;
+            color: #c7336c;
+            margin-bottom: 10px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 3.5em;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+        .header h2 {
+            margin: 0;
+            font-size: 400%;
+        }
+        .header .padrinos {
+            font-size: 80%;
+            color: #e43d61;
+            margin-top: 30px;
+        }
+        .images {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .images img {
+            max-width: 100px;
+            height: auto;
+        }
+        .details {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 150%;
+            color: #000;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .details .date,
+        .details .time {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #000;
+        }
+        .details .date {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #9c2e49;
+        }
+        .details .time {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #9c2e49;
+        }
+        .details .separator {
+            border-left: 3px solid #a75454;
+            height: 60px;
+            color: #d44b6d;
+        }
+        .location {
+            font-size: 110%;
+            margin: 20px 0;
+            color: #3d1519;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .button-container p {
+            margin: 8px 0 0 0; /* Ajusta el margen según tus preferencias */
+            font-size: 100%; /* Ajusta el tamaño según tus preferencias */
+            font-weight: bold;
+        }
+        .button {
+            text-decoration: none;
+            background-color: #ffffff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: none; /* Quitamos el borde para que no se vea alrededor de la imagen */
+            width: 200px; /* Ancho fijo para que los botones tengan el mismo tamaño */
+            justify-content: center;
+        }
+        .button img {
+            width: 90px;
+            height: 100px;
+            margin-right: 10px; /* Espacio entre la imagen y el texto */
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 1em;
+            color: #555;
+            font-style: italic;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+        .details .padrinos {
+            font-size: 1.0em; /* Puedes ajustar el tamaño según tus preferencias */
+        }
+    </style>
+</head>
+<body>
+    <div id="initial-image" style="text-align: center; padding: 20px;">
+        <img src="img/descarga.jpeg" alt="Imagen inicial" style="max-width: 100%; height: auto;">
+    </div>
+
+    <div class="background-container">
+        <img src="img/fon2.jpeg" alt="Fondo" onerror="this.src='img/fon2.jpg'">
+    </div>
+    <div class="container" style="display: none;">
+        <!-- Aquí va todo el contenido de la invitación -->
+        <div class="header">
+            <p>Acompáñame a celebrar:</p>
+            <h1>Mi Bautizo</h1>
+            <div class="images">
+                <img src="img/Nacimiento de Cristo.jpeg" alt="Ángel">
+                <img src="img/Ilustración de concepto.jpeg" alt="Copa">
+            </div>
+            <h2>Eimy Rodriguez</h2>
+            <div class="padrinos">
+                <p>Mis Padrinos</p>
+                <p>Carlos Cadena</p>
+                <p>Lizbeth Tupiza</p>
+            </div>
+        </div>
+        <div class="details">
+            <div class="date">
+                <p>20</p>
+                <p>Julio</p>
+            </div>
+            <div class="separator"></div>
+            <div>
+                <p>Iglesia de Guayllabamba</p>
+            </div>
+            <div class="separator"></div>
+            <div class="time">
+                <p>7:00</p>
+                <p>Pm</p>
+            </div>
+        </div>
+        <div class="location">
+            <div class="button-container">
+                <div>
+                    <p>Lugar de la Iglesia</p>
+                    <a href="https://www.google.com/maps/dir//Parque+Central,+Av.+Libertador+Sim%C3%B3n+Bol%C3%ADvar+1012y,+Quito+170209/@-0.0592439,-78.4281002,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x91d58b995deed54f:0x9b2e4e9760b11e00!2m2!1d-78.3456711!2d-0.0591945?entry=ttu" class="button church">
+                        <img src="img/ubi.png" alt="Ubicación Iglesia">
+                        <span></span>
+                    </a>
+                </div>
+                <div>
+                    <p>Lugar de la Recepción-Moronga</p>
+                    <a href="https://www.google.com/maps/dir//San+luis+de+Moronga,+Malchingui/@0.0143975,-78.3344716,48m/data=!3m1!1e3!4m8!4m7!1m0!1m5!1m1!1s0x8e2a75786125f253:0x92f262bdbe3cbb2c!2m2!1d-78.3337932!2d0.0151337?entry=ttu" class="button reception">
+                        <img src="img/ubi.png" alt="Ubicación Recepción">
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>"En este día especial la luz de Dios encenderá mi corazón para iluminar el camino de mi vida"</p>
+        </div>
+    </div>
+
+    <script>
+        // Función para ocultar la imagen inicial y mostrar la invitación
+        setTimeout(() => {
+            const initialImage = document.getElementById('initial-image');
+            const invitationContainer = document.querySelector('.container');
+
+            initialImage.style.display = 'none';
+            invitationContainer.style.display = 'block';
+        }, 5000); // Cambiar el tiempo en milisegundos según tu preferencia
+    </script>
+</body>
+</html>
